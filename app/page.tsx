@@ -1,65 +1,210 @@
-import Image from "next/image";
+'use client'
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import Navigation from '@/components/Navigation'
+import AnimatedSection from '@/components/AnimatedSection'
+import { HiArrowRight, HiCheckCircle } from 'react-icons/hi'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen">
+      <Navigation />
+
+      {/* Hero Section - Full height, magazine cover style */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#2D5016] via-[#3D6020] to-[#2D5016]">
+        {/* Subtle overlay pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.05) 35px, rgba(255,255,255,.05) 70px)`
+          }} />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight leading-tight">
+              Elite SAT/ACT<br />Test Preparation
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-light tracking-wide">
+              A white-glove, concierge experience for students targeting top universities
+            </p>
+            <p className="text-lg md:text-xl text-[#E77500] font-medium mb-12 tracking-wide">
+              Princeton Educated • Proven Results • Limited Clientele
+            </p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-[#E77500] text-white font-medium tracking-wide rounded-sm hover:bg-[#C66300] transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Schedule Consultation
+                <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-medium tracking-wide rounded-sm border-2 border-white/30 hover:bg-white/20 transition-all duration-300"
+              >
+                Learn More
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+            <motion.div
+              className="w-1 h-2 bg-white/50 rounded-full"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section className="py-24 md:py-32 bg-[#FAFAF8]">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2C2C2C] mb-6 tracking-tight">
+                The Coach Nick Difference
+              </h2>
+              <div className="w-24 h-1 bg-[#E77500] mx-auto mb-8" />
+              <p className="text-xl text-[#8B7E74] max-w-3xl mx-auto leading-relaxed">
+                I work with a select number of students each year, ensuring personalized attention
+                and exceptional results. This isn&apos;t mass tutoring—it&apos;s a partnership.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            {[
+              {
+                title: 'Princeton Pedigree',
+                description: 'Ivy League education brings insider knowledge of what top universities seek in their students.',
+              },
+              {
+                title: 'Personalized Strategy',
+                description: 'Custom test-taking strategies tailored to each student\'s strengths, weaknesses, and learning style.',
+              },
+              {
+                title: 'Proven Track Record',
+                description: 'Consistent score improvements and acceptances to the nation\'s most selective institutions.',
+              },
+            ].map((item, index) => (
+              <AnimatedSection key={index} delay={index * 0.2}>
+                <div className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border border-[#F5F1E8] h-full">
+                  <div className="flex items-start mb-4">
+                    <HiCheckCircle className="text-[#E77500] text-3xl mr-3 flex-shrink-0 mt-1" />
+                    <h3 className="text-2xl font-serif font-semibold text-[#2D5016]">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-[#8B7E74] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#2C2C2C] mb-6 tracking-tight">
+                Services
+              </h2>
+              <div className="w-24 h-1 bg-[#E77500] mx-auto" />
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'SAT Preparation',
+                features: [
+                  'Comprehensive content review',
+                  'Advanced test-taking strategies',
+                  'Full-length practice tests with detailed analysis',
+                  'Time management techniques',
+                ],
+              },
+              {
+                title: 'ACT Preparation',
+                features: [
+                  'Section-specific skill building',
+                  'Science reasoning mastery',
+                  'Pacing and accuracy optimization',
+                  'Real ACT exam simulations',
+                ],
+              },
+            ].map((service, index) => (
+              <AnimatedSection key={index} delay={index * 0.2}>
+                <div className="bg-[#F5F1E8] p-10 rounded-sm h-full">
+                  <h3 className="text-3xl font-serif font-bold text-[#2D5016] mb-6">
+                    {service.title}
+                  </h3>
+                  <ul className="space-y-4">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-[#E77500] mr-3 text-xl">•</span>
+                        <span className="text-[#2C2C2C] text-lg">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 md:py-32 bg-gradient-to-br from-[#2D5016] to-[#3D6020]">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
+          <AnimatedSection>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 tracking-tight">
+              Ready to Achieve Your Best Score?
+            </h2>
+            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Limited spots available. Join a select group of students committed to excellence.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-10 py-5 bg-[#E77500] text-white font-semibold text-lg tracking-wide rounded-sm hover:bg-[#C66300] transition-all duration-300 shadow-xl hover:shadow-2xl group"
             >
-              Learning
-            </a>{" "}
-            center.
+              Get Started Today
+              <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#2C2C2C] py-12">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-white/70 text-sm tracking-wide">
+            © {new Date().getFullYear()} Coach Nick. All rights reserved.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
-  );
+  )
 }
