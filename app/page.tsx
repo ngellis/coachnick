@@ -29,9 +29,6 @@ export default function Home() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tight leading-tight">
               Elite SAT/ACT<br />Test Preparation
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-light tracking-wide">
-              A white-glove, concierge experience for students targeting top universities
-            </p>
             <p className="text-lg md:text-xl text-[#E77500] font-medium mb-12 tracking-wide">
               Princeton Educated • Proven Results • Limited Clientele
             </p>
@@ -106,9 +103,9 @@ export default function Home() {
               },
             ].map((item, index) => (
               <AnimatedSection key={index} delay={index * 0.2}>
-                <div className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border border-[#F5F1E8] h-full">
-                  <div className="flex items-start mb-4">
-                    <HiCheckCircle className="text-[#E77500] text-3xl mr-3 flex-shrink-0 mt-1" />
+                <div className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border border-[#F5F1E8] h-full text-center">
+                  <div className="flex flex-col items-center mb-4">
+                    <HiCheckCircle className="text-[#E77500] text-4xl mb-3" />
                     <h3 className="text-2xl font-serif font-semibold text-[#2D5016]">
                       {item.title}
                     </h3>
