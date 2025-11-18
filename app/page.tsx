@@ -13,6 +13,21 @@ export default function Home() {
 
       {/* Hero Section - Full height, magazine cover style */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#2D5016] via-[#3D6020] to-[#2D5016]">
+        {/* Nassau Hall background image - subtle, grayscale */}
+        <div
+          className="absolute inset-0 opacity-15 grayscale"
+          style={{
+            backgroundImage: 'url(/Cannon_Green_and_Nassau_Hall,_Princeton_University.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'grayscale(100%)',
+          }}
+        />
+
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-[#2D5016]/40" />
+
         {/* Subtle overlay pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -154,13 +169,13 @@ export default function Home() {
               },
             ].map((service, index) => (
               <AnimatedSection key={index} delay={index * 0.2}>
-                <div className="bg-[#F5F1E8] p-10 rounded-sm h-full">
+                <div className="bg-[#F5F1E8] p-10 rounded-sm h-full text-center">
                   <h3 className="text-3xl font-serif font-bold text-[#2D5016] mb-6">
                     {service.title}
                   </h3>
                   <ul className="space-y-4">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
+                      <li key={i} className="flex items-center justify-center">
                         <span className="text-[#E77500] mr-3 text-xl">•</span>
                         <span className="text-[#2C2C2C] text-lg">{feature}</span>
                       </li>
