@@ -46,33 +46,30 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
+    <div className="bg-[#FAFAF8]">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#2D5016] to-[#3D6020]">
+      <section className="relative pt-40 pb-40 md:pt-48 md:pb-56 bg-gradient-to-br from-[#2D5016] to-[#3D6020]">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            className="text-left mt-4"
           >
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight">
-              Get In Touch
-            </h1>
-            <div className="w-24 h-1 bg-[#E77500] mx-auto mb-8" />
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
-              Take the first step toward achieving your best score. Limited spots available.
+            <div className="w-24 h-1 bg-[#2D5016] mb-8" />
+            <p className="text-2xl md:text-3xl text-[#2D5016] max-w-3xl leading-relaxed font-light">
+              Limited spots available.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Information Cards */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+      <section className="py-20 md:py-32 flex-1">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="grid md:grid-cols-3 gap-8 mb-32">
             {[
               {
                 icon: HiMail,
@@ -118,9 +115,9 @@ export default function Contact() {
 
           {/* Contact Form */}
           <AnimatedSection>
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <div className="bg-white p-10 md:p-14 rounded-sm shadow-md border border-[#F5F1E8]">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#2D5016] mb-8 text-center">
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#2D5016] mb-8 text-center">
                   Schedule a Consultation
                 </h2>
 
@@ -239,7 +236,6 @@ export default function Contact() {
                       <option value="">Select test type</option>
                       <option value="SAT">SAT</option>
                       <option value="ACT">ACT</option>
-                      <option value="Both">Both SAT & ACT</option>
                       <option value="Undecided">Not sure yet</option>
                     </select>
                   </div>
@@ -250,7 +246,7 @@ export default function Contact() {
                       htmlFor="message"
                       className="block text-sm font-medium text-[#2C2C2C] mb-2 tracking-wide"
                     >
-                      Tell me about your goals *
+                      Tell me more *
                     </label>
                     <textarea
                       id="message"
@@ -260,7 +256,7 @@ export default function Contact() {
                       required
                       rows={5}
                       className="w-full px-4 py-3 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all resize-none bg-[#FAFAF8]"
-                      placeholder="What are your target schools? What score are you aiming for? Any specific concerns?"
+                      placeholder="Past Results? What score are you aiming for? Any specific concerns?"
                     />
                   </div>
 
@@ -279,16 +275,14 @@ export default function Contact() {
 
           {/* Additional Info */}
           <AnimatedSection>
-            <div className="mt-20 max-w-3xl mx-auto text-center">
-              <div className="bg-[#F5F1E8] p-10 rounded-sm">
+            <div className="mt-20 mb-20 max-w-7xl mx-auto text-center">
+              <div className="bg-[#F5F1E8] p-16 md:p-20 rounded-sm">
                 <h3 className="text-2xl font-serif font-semibold text-[#2D5016] mb-4">
                   What Happens Next?
                 </h3>
                 <div className="space-y-3 text-[#2C2C2C] text-lg">
                   <p>1. I&apos;ll review your inquiry and respond within 24 hours</p>
                   <p>2. We&apos;ll schedule a complimentary 30-minute consultation</p>
-                  <p>3. I&apos;ll create a personalized test prep roadmap</p>
-                  <p>4. If we&apos;re a good fit, we&apos;ll begin your journey to success</p>
                 </div>
               </div>
             </div>
