@@ -51,7 +51,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex justify-center"
             >
               <Link
                 href="/contact"
@@ -59,12 +59,6 @@ export default function Home() {
               >
                 Schedule Consultation
                 <HiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-medium tracking-wide rounded-sm border-2 border-white/30 hover:bg-white/20 transition-all duration-300"
-              >
-                Learn More
               </Link>
             </motion.div>
           </motion.div>

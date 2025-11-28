@@ -69,55 +69,11 @@ export default function Contact() {
       {/* Contact Information Cards */}
       <section className="py-20 md:py-32 flex-1">
         <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-8 mb-32">
-            {[
-              {
-                icon: HiMail,
-                title: 'Email',
-                content: 'hello@coachnick.org',
-                link: 'mailto:hello@coachnick.org',
-              },
-              {
-                icon: HiPhone,
-                title: 'Phone',
-                content: 'Available upon request',
-                link: null,
-              },
-              {
-                icon: HiClock,
-                title: 'Response Time',
-                content: 'Within 24 hours',
-                link: null,
-              },
-            ].map((item, index) => (
-              <AnimatedSection key={index} delay={index * 0.1}>
-                <div className="bg-white p-8 rounded-sm shadow-sm text-center border border-[#F5F1E8] hover:shadow-md transition-all duration-300">
-                  <div className="inline-flex items-center justify-center w-14 h-14 bg-[#2D5016] rounded-full mb-4">
-                    <item.icon className="text-white text-2xl" />
-                  </div>
-                  <h3 className="text-xl font-serif font-semibold text-[#2D5016] mb-2">
-                    {item.title}
-                  </h3>
-                  {item.link ? (
-                    <a
-                      href={item.link}
-                      className="text-[#8B7E74] hover:text-[#E77500] transition-colors"
-                    >
-                      {item.content}
-                    </a>
-                  ) : (
-                    <p className="text-[#8B7E74]">{item.content}</p>
-                  )}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
           {/* Contact Form */}
           <AnimatedSection>
             <div className="max-w-7xl mx-auto">
-              <div className="bg-white p-10 md:p-14 rounded-sm shadow-md border border-[#F5F1E8]">
-                <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#2D5016] mb-8 text-center">
+              <div className="bg-white p-12 md:p-20 rounded-sm shadow-md border border-[#F5F1E8]">
+                <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#2D5016] mb-12 text-center">
                   Schedule a Consultation
                 </h2>
 
@@ -133,12 +89,12 @@ export default function Contact() {
                   </motion.div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-10">
                   {/* Name */}
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-[#2C2C2C] mb-2 tracking-wide"
+                      className="block text-lg font-medium text-[#2C2C2C] mb-3 tracking-wide"
                     >
                       Parent/Guardian Name *
                     </label>
@@ -149,7 +105,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
+                      className="w-full px-8 py-6 text-lg border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
                       placeholder="Your name"
                     />
                   </div>
@@ -158,7 +114,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-[#2C2C2C] mb-2 tracking-wide"
+                      className="block text-lg font-medium text-[#2C2C2C] mb-3 tracking-wide"
                     >
                       Email Address *
                     </label>
@@ -169,7 +125,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
+                      className="w-full px-8 py-6 text-lg border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -178,7 +134,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-medium text-[#2C2C2C] mb-2 tracking-wide"
+                      className="block text-lg font-medium text-[#2C2C2C] mb-3 tracking-wide"
                     >
                       Phone Number
                     </label>
@@ -188,7 +144,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
+                      className="w-full px-8 py-6 text-lg border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -197,7 +153,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="studentGrade"
-                      className="block text-sm font-medium text-[#2C2C2C] mb-2 tracking-wide"
+                      className="block text-lg font-medium text-[#2C2C2C] mb-3 tracking-wide"
                     >
                       Student&apos;s Current Grade *
                     </label>
@@ -207,7 +163,7 @@ export default function Contact() {
                       value={formData.studentGrade}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
+                      className="w-full px-8 py-6 text-lg border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
                     >
                       <option value="">Select grade</option>
                       <option value="9th">9th Grade</option>
@@ -221,7 +177,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="testType"
-                      className="block text-sm font-medium text-[#2C2C2C] mb-2 tracking-wide"
+                      className="block text-lg font-medium text-[#2C2C2C] mb-3 tracking-wide"
                     >
                       Test Preparation Interest *
                     </label>
@@ -231,7 +187,7 @@ export default function Contact() {
                       value={formData.testType}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
+                      className="w-full px-8 py-6 text-lg border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all bg-[#FAFAF8]"
                     >
                       <option value="">Select test type</option>
                       <option value="SAT">SAT</option>
@@ -244,7 +200,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-[#2C2C2C] mb-2 tracking-wide"
+                      className="block text-lg font-medium text-[#2C2C2C] mb-3 tracking-wide"
                     >
                       Tell me more *
                     </label>
@@ -255,7 +211,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all resize-none bg-[#FAFAF8]"
+                      className="w-full px-6 py-4 border border-[#E5E5E5] rounded-sm focus:outline-none focus:ring-2 focus:ring-[#E77500] focus:border-transparent transition-all resize-none bg-[#FAFAF8]"
                       placeholder="Past Results? What score are you aiming for? Any specific concerns?"
                     />
                   </div>
@@ -264,7 +220,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-[#E77500] text-white font-semibold text-lg tracking-wide rounded-sm hover:bg-[#C66300] transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-6 bg-[#E77500] text-white font-semibold text-xl tracking-wide rounded-sm hover:bg-[#C66300] transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
