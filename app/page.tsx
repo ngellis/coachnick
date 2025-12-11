@@ -66,15 +66,6 @@ export default function Home() {
         </div>
 
       </section>
-
-      {/* Footer */}
-      <footer className="bg-[#2C2C2C] py-12">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <p className="text-white/70 text-sm tracking-wide text-center">
-            © {new Date().getFullYear()} Coach Nick. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }

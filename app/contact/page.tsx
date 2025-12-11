@@ -161,29 +161,14 @@ export default function Contact() {
             <div className="mb-8" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* LEFT COLUMN - Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="md:pt-8"
-            >
-              <div className="w-32 h-1 bg-[#E77500] mb-8" />
-              <p className="text-lg md:text-xl leading-relaxed" style={{ color: 'var(--charcoal)' }}>
-                Call <span style={{ color: '#E77500', fontWeight: '600' }}>(310) 993-7628</span> or email me at{' '}
-                <span style={{ color: '#4A7C7E', fontWeight: '600' }}>ngellis@alumni.princeton.edu</span> or reach out using the contact form.
-              </p>
-            </motion.div>
-
-            {/* RIGHT COLUMN - Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
+          {/* Centered Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl mx-auto"
+          >
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
@@ -334,8 +319,7 @@ export default function Contact() {
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
-            </motion.div>
-          </div>
+          </motion.div>
 
           {/* What Happens Next */}
           <motion.div
