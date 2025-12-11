@@ -167,7 +167,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
