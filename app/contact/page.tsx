@@ -162,13 +162,14 @@ export default function Contact() {
           </motion.div>
 
           {/* Centered Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
+          <div className="flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="w-full max-w-4xl"
+            >
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
                 <div>
@@ -319,7 +320,8 @@ export default function Contact() {
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
-          </motion.div>
+            </motion.div>
+          </div>
 
           {/* What Happens Next */}
           <motion.div
