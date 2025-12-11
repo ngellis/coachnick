@@ -1,26 +1,309 @@
+/* Import Google Fonts - Coach Nick Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind CSS */
 @import "tailwindcss";
 
+/* Coach Nick Brand Colors + Tutor Ted Responsive Spacing */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors - Princeton/Ivy League Aesthetic */
+  --ivy-green: #2D5016;
+  --princeton-orange: #E77500;
+  --orange-hover: #C66300;
+  --cream: #F5F1E8;
+  --charcoal: #2C2C2C;
+  --stone: #8B7E74;
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
+
+  /* Fluid Spacing (Tutor Ted approach) - Scales with viewport */
+  --spacing-fluid-sm: clamp(1rem, 2vw, 1.5rem);
+  --spacing-fluid-md: clamp(1.5rem, 4vw, 3rem);
+  --spacing-fluid-lg: clamp(2rem, 6vw, 5rem);
+  --spacing-fluid-xl: clamp(2.5rem, 8vw, 8rem);
+
+  /* Container System - Modern 1280px max-width */
+  --container-max-width: 80rem;
+  --container-padding: clamp(1rem, 5vw, 4rem);
+
+  /* Responsive Gaps */
+  --gap-sm: clamp(1rem, 2vw, 1.5rem);
+  --gap-md: clamp(1.5rem, 3vw, 2.5rem);
+  --gap-lg: clamp(2rem, 4vw, 4rem);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Typography - Serif headings, sans-serif body */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ivy-green);
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Form elements inherit font */
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* Smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Responsive Container Classes (Tutor Ted Pattern) */
+.responsive-container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+}
+
+/* Navigation Container - Fluid padding */
+.nav-container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  padding-top: clamp(0.75rem, 1.5vw, 1.25rem);
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  transition: all 0.3s ease;
+}
+
+/* Footer Container - Fluid padding */
+.footer-container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Card Components - White boxes with responsive padding */
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  transition: box-shadow 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+/* Primary Button - Princeton Orange CTA */
+.btn-primary {
+  background-color: var(--princeton-orange);
+  color: white;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 0.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 117, 0, 0.3);
+}
+
+/* Contact Form Container */
+.contact-form {
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.contact-form > * + * {
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+/* Form input styling */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(0.875rem, 2vw, 1.125rem);
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  outline: none;
+  border-color: var(--ivy-green);
+  box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.1);
+}
+
+.contact-form label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+/* Section Spacing */
+.section-stack > * + * {
+  margin-top: var(--spacing-fluid-xl);
+}
+
+.section-content > * + * {
+  margin-top: var(--spacing-fluid-sm);
+}
+
+/* Responsive Gaps */
+.responsive-gap {
+  gap: var(--gap-md);
+}
+
+.responsive-gap-sm {
+  gap: var(--gap-sm);
+}
+
+.responsive-gap-lg {
+  gap: var(--gap-lg);
+}
+
+/* Myth Box - Services Page (Cream background, orange border) */
+.myth-box {
+  background-color: var(--cream);
+  border-left: 4px solid var(--princeton-orange);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 0.25rem;
+  margin-top: var(--spacing-fluid-md);
+  margin-bottom: var(--spacing-fluid-md);
+}
+
+.myth-box h3 {
+  color: var(--princeton-orange);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  margin-bottom: 0.75rem;
+}
+
+/* Hero Section - Princeton Background */
+.hero-section {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(45, 80, 22, 0.85), rgba(61, 96, 32, 0.85));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  padding: var(--container-padding);
+}
+
+/* Success/Error Messages */
+.success-message {
+  background-color: #dcfce7;
+  border: 1px solid #86efac;
+  color: #166534;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Limited Availability Badge */
+.limited-badge {
+  display: inline-block;
+  background-color: var(--princeton-orange);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
 }
