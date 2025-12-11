@@ -324,13 +324,14 @@ export default function Contact() {
           </div>
 
           {/* What Happens Next */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-20"
-          >
+          <div className="flex justify-center mt-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="w-full max-w-4xl"
+            >
             <div className="bg-gradient-to-br from-[#F5F1E8] to-[#E8DFD0] p-10 md:p-12 rounded-2xl">
               <h3
                 className="text-2xl font-semibold mb-6 text-center"
@@ -354,7 +355,8 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>
