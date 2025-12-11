@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Coach Nick | Holistic SAT/ACT Test Prep | Princeton Educated",
+  title: "Coach Nick | Holistic SAT/ACT Test Prep",
   description: "White-glove SAT and ACT test preparation by a Princeton-educated tutor. Limited clientele, personalized strategies, and proven results for top university admissions.",
 };
 
